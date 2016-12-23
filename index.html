@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 
 <!-- define angular app -->
-<html ng-app="ksnApp">
+<html ng-app="ksnApp" ng-controller="mainController">
 
 <head>
     <!-- SCROLLS -->
     <link rel="stylesheet" href="lib/bootstrap.min.css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />-->
 
     <!-- SPELLS -->
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.js"></script>
+    <script src="lib/ngStorage.js"></script>
     <script src="script.js"></script>
+    <script src="script/storageFactory.js"></script>
     <script src="script/main.js"></script>
+    <script src="script/login.js"></script>
+    <script src="script/menu.js"></script>
     <style>
         .jumbotron {
             background-color: #f4511e;
             color: #fff;
             padding: 100px 25px;
         }
-        
+
         .container-fluid {
             padding: 60px 50px;
         }
-        
+
         .bg-grey {
             background-color: #f6f6f6;
         }
-        
+
         .logo-small {
             color: #f4511e;
             font-size: 50px;
         }
-        
+
         .logo {
             color: #f4511e;
             font-size: 200px;
         }
-        
+
         @media screen and (max-width: 768px) {
             .col-sm-4 {
                 text-align: center;
@@ -51,7 +55,7 @@
 
 <!-- define angular controller -->
 
-<body ng-controller="mainController">
+<body>
 
     <nav class="navbar navbar-default">
         <div class="container">
@@ -59,12 +63,6 @@
                 <a class="navbar-brand" href="#/">ระบบติดตามเวชระเบียน โรงพยาบาลแก้งสนามนาง</a>
             </div>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fa fa-shield"></i> รับเวชระเบียน</a></li>
-                <li><a href="#contact"><i class="fa fa-comment"></i> ส่งเวชระเบียน</a></li>
-                <li><a href="#about"><i class="fa fa-file-text">รายงาน</i></a></li>
-            </ul>
         </div>
     </nav>
 

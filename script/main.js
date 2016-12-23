@@ -1,51 +1,29 @@
-	scotchApp.controller('mainController', function($scope, $http, $location) {
-	    // create a message to display in our view
+scotchApp.controller('mainController', function ($scope, $http, $location, $localStorage) {
+	// create a message to display in our view
+	console.log($localStorage.stutus)
+	if ($localStorage.status === null) {
+
+			alert("ท่านยังไม่เข้าระบบ กรุณา Login");
+			$scope.st = false;
+			$location.path('/login');
+
+		} else {
+			$scope.user = $localStorage.user;
+			$scope.st = $localStorage.status;
+		}
+
+	console.log($scope.st);
+
+	$scope.form = {};
+
+
+	$scope.logout = function () {
+		$localStorage.status = null;
+		$location.path('/login');
+
+	}
 
 
 
 
-	    console.log('Login Controller Start.');
-
-	    $scope.form = {};
-
-	    $scope.btnLogin = function() {
-	        //console.log($scope.form);
-	        var parm = {
-
-	            'var_username': $scope.form.txt_usr,
-	            'var_password': $scope.form.txt_pwd
-
-	        };
-
-
-	        console.log(parm);
-	        $http(
-
-	            {
-	                url: 'http://ksnhealth.ddns.net/mra_api/login.php',
-	                method: 'GET',
-	                params: parm
-	            }).then(function(response) {
-
-	            if (response.data.status == 'success') {
-
-	                $scope.loginname = response.data.data.loginname;
-	                $scope.username = response.data.data.name;
-	                $scope.status = response.data.status;
-	                console.log($scope.status);
-	                $location.path('/about');
-	            } else {
-	                alert('ชื่อผู้ใช้งานหรือรหัสผ่านผิดพลาด');
-
-	            }
-
-	        });
-
-
-	    }
-
-
-
-
-
-	});
+});
