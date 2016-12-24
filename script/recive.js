@@ -1,4 +1,4 @@
-scotchApp.controller('mainController', function($scope, $http, $location, $localStorage) {
+scotchApp.controller('reciveController', function($scope, $http, $location, $localStorage) {
     // create a message to display in our view
     console.log($localStorage.stutus)
     if ($localStorage.status === null) {
@@ -14,16 +14,5 @@ scotchApp.controller('mainController', function($scope, $http, $location, $local
 
     console.log($scope.st);
 
-    $scope.form = {};
 
-
-    $scope.logout = function() {
-        $localStorage.status = null;
-        $location.path('/login');
-
-    }
-
-
-
-
-});
+})

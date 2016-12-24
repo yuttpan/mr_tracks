@@ -11,38 +11,42 @@
     <!-- SPELLS -->
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/popover.js"></script>
     <script src="lib/ngStorage.js"></script>
     <script src="script.js?n=1"></script>
     <script src="script/storageFactory.js"></script>
-    <script src="script/service.js"> </script>
+
     <script src="script/main.js"></script>
     <script src="script/login.js"></script>
     <script src="script/menu.js"></script>
+    <script src="script/recive.js"></script>
     <style>
         .jumbotron {
             background-color: #f4511e;
             color: #fff;
             padding: 100px 25px;
         }
-
+        
         .container-fluid {
             padding: 60px 50px;
         }
-
+        
         .bg-grey {
             background-color: #f6f6f6;
         }
-
+        
         .logo-small {
             color: #f4511e;
             font-size: 50px;
         }
-
+        
         .logo {
             color: #f4511e;
             font-size: 200px;
         }
-
+        
         @media screen and (max-width: 768px) {
             .col-sm-4 {
                 text-align: center;
@@ -67,7 +71,9 @@
         </div>
     </nav>
 
-    <div id="main">
+
+
+    <div id="main" class="container">
 
         <!-- angular templating -->
         <!-- this is where content will be injected -->
