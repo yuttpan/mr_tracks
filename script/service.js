@@ -4,7 +4,7 @@ scotchApp.service('DataService', function ($http) {
 
         $http({
             method: 'POST',
-            url: '../post.json',
+            url: 'post.json',
             data: data,
             headers: {
                 'Content-type': 'application/json'
@@ -21,6 +21,7 @@ scotchApp.controller('MyControlller', function ($scope, DataService) {
     $scope.customer = {};
     $scope.result = {};
     $scope.save = function () {
+        console.log($scope.customer)
         DataService.postData($scope.customer, function (data) {
             $scope.result = data;
 
