@@ -1,6 +1,6 @@
-scotchApp.service('DataService', function($http) {
+scotchApp.service('DataService', function ($http) {
 
-    this.postData = function(data, callback) {
+    this.postData = function (data, callback) {
 
         $http({
             method: 'POST',
@@ -9,19 +9,19 @@ scotchApp.service('DataService', function($http) {
             headers: {
                 'Content-type': 'application/json'
             }
-        }).success(function(resp) {
+        }).success(function (resp) {
             callback(resp);
-        }).error(function() {
+        }).error(function () {
             callback(undefined);
         });
     };
 });
 
-myApp.controller('MyControlller', function($scope, DataService) {
+scotchApp.controller('MyControlller', function ($scope, DataService) {
     $scope.customer = {};
     $scope.result = {};
-    $scope.save = function() {
-        DataService.postData($scope.customer, function(data) {
+    $scope.save = function () {
+        DataService.postData($scope.customer, function (data) {
             $scope.result = data;
 
         });
