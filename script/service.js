@@ -1,6 +1,6 @@
-scotchApp.service('DataService', function ($http) {
+scotchApp.service('DataService', function($http) {
 
-    this.postData = function (data, callback) {
+    this.postData = function(data, callback) {
 
         $http({
             method: 'POST',
@@ -9,14 +9,14 @@ scotchApp.service('DataService', function ($http) {
             headers: {
                 'Content-type': 'application/json'
             }
-        }).success(function (resp) {
+        }).success(function(resp) {
             callback(resp);
-        }).error(function () {
+        }).error(function() {
             callback(undefined);
         });
     };
 
-    this.loginService = function (data) {
+    this.loginService = function(data) {
 
         var formdata = data;
         console.log(formdata)
@@ -31,7 +31,7 @@ scotchApp.service('DataService', function ($http) {
 
     };
 
-    this.AnService = function (data) {
+    this.AnService = function(data) {
         var fdata = data;
         var promise = $http({
             method: 'POST',
@@ -42,7 +42,15 @@ scotchApp.service('DataService', function ($http) {
         return promise;
     }
 
+    this.AnService1 = function(data) {
+        var fdata = data;
+        var promise = $http({
+            method: 'POST',
+            url: './api/reciveAn.php',
+            data: fdata
+        })
+
+        return promise;
+    }
+
 });
-
-
-
