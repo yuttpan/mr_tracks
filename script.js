@@ -29,8 +29,8 @@ scotchApp.config(function ($routeProvider) {
             controller: 'loginController'
         })
         .when('/recive', {
-            templateUrl: 'httppostservice.html?v=001',
-            controller: 'MyControlller'
+            templateUrl: 'pages/recive.html?v=001',
+            controller: 'reciveController'
         });
 
 

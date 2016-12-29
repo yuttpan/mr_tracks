@@ -15,17 +15,34 @@ scotchApp.service('DataService', function ($http) {
             callback(undefined);
         });
     };
-});
 
-scotchApp.controller('MyControlller', function ($scope, DataService) {
-    $scope.customer = {};
-    $scope.result = {};
-    $scope.save = function () {
-        console.log($scope.customer)
-        DataService.postData($scope.customer, function (data) {
-            $scope.result = data;
+    this.loginService = function (data) {
+
+        var formdata = data;
+        console.log(formdata)
+        var promise = $http({
+            method: 'POST',
+            url: './api/login.php',
+            data: formdata
 
         });
+        return promise;
+
+
     };
 
+    this.AnService = function (data) {
+        var fdata = data;
+        var promise = $http({
+            method: 'POST',
+            url: './api/anCheck.php',
+            data: fdata
+        })
+
+        return promise;
+    }
+
 });
+
+
+
