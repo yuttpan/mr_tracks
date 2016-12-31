@@ -1,11 +1,11 @@
 <ol class="breadcrumb">
     <li><a href="#/">Home</a></li>
-    <li class="active">รับเวชระเบียน</li>
+    <li class="active">ส่งเวชระเบียน</li>
 </ol>
 
-<div class="panel panel-primary" ng-controller="reciveController">
+<div class="panel panel-primary" ng-controller="sendController">
     <div class="panel-heading">
-        <h3 class="panel-title">รับเวชระเบียน</h3>
+        <h3 class="panel-title">ส่งเวชระเบียน</h3>
     </div>
     <div class="panel-body">
 
@@ -66,21 +66,20 @@
 
                 <div c <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                     <div class="form-group">
-                        <label for="inputuser" class="col-sm-2 control-label">รับจาก</label>
+                        <label for="inputuser" class="col-sm-2 control-label">ผู้รับ</label>
                         <div class="col-sm-10">
-                            <select name="" id="inputuser" class="form-control" ng-model="form.userSend">
+                            <select name="" id="inputuser" class="form-control" ">
 
-                                <option value="{{d.u_name}}" ng-repeat="d in listuser ">{{d.u_name}}</option>
+                                <option value=" " ng-repeat="d in listuser ">{{d.u_name}}</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
 
-
             <div class="form-group ">
                 <div class="col-sm-offset-2 col-sm-10 ">
-                    <button type="button " class="btn btn-default " ng-click="chkAn1(form) ">ตกลง</button>
+                    <button type="button " class="btn btn-default " ng-click="chkAn1(form.an) ">ตกลง</button>
                 </div>
             </div>
         </form>

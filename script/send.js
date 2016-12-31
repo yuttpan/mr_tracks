@@ -1,7 +1,6 @@
-
-
-scotchApp.controller('sendController', function ($scope, $http, $location) {
-
+scotchApp.controller('sendController', function ($scope, $http, $location, $localStorage, DataService) {
+	// create a message to display in our view
+	console.log($localStorage.status)
 	if ($localStorage.status === null) {
 
 		alert("ท่านยังไม่เข้าระบบ กรุณา Login");
@@ -13,23 +12,57 @@ scotchApp.controller('sendController', function ($scope, $http, $location) {
 		$scope.st = $localStorage.status;
 	}
 	$scope.form = {};
-	$scope.btnHome = function (data) {
+	$scope.form.user = $localStorage.user;
+	console.log($scope.form)
+	$scope.chkAn = function () {
+		DataService.AnService($scope.form.an).success(function ($data) {
+			var getdata = angular.extend($data);
+			console.log(getdata)
 
-		$state.go('list');
+			$scope.an = getdata.data.an;
+			$scope.ptname = getdata.data.ptname;
+			// console.log($scope.an)
+
+		});
+
+
+
 	}
 
-	$scope.results = "result here.";
-	$scope.form.date = new Date();
-	$scope.form.user = $localStorage.user;
-	console.log($scope.form.user);
+	$scope.listuser = function () {
+		DataService.userService().success(function ($data) {
+			var getdata = angular.extend($data);
+			console.log(getdata)
+
+			//$scope.an = getdata.data.an;
+			//$scope.ptname = getdata.data.ptname;
+			// console.log($scope.an)
+			$scope.listuser = getdata;
+		});
 
 
 
-	/*	$scope.send = function (data) {
-			console.log(data)
-		}
-	*/
-	//$scope.user = $localStorage.user
+	}
+
+	$scope.listuser();
+
+	$scope.chkAn1 = function () {
+		$scope.form.action = 'R'
+		DataService.AnService1($scope.form).success(function ($data) {
+			var getdata = angular.extend($data);
+			console.log(getdata.data)
+
+			if (getdata.data == 'success') {
+				alert('บันทึกข้อมูลสำเร็จ')
+			} else {
+				alert('ไม่สามารถบันทึกข้อมูลได้')
+			}
+
+		});
+
+
+
+	}
 
 
 

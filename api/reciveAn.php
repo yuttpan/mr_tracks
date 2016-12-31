@@ -1,30 +1,25 @@
 <?php
 header('Access-control-Allow-origin:*');
 include_once 'DB.php';
+date_default_timezone_set('America/Los_Angeles');
 // Check connection
 $_POST = json_decode(file_get_contents('php://input'),TRUE);
 if (!$link) {
     die("Connection failed: " . mysqli_connect_error());
 }
- print_r($_POST) ;
-
+ $u = $_POST['user'] ;
+ $an = $_POST['an'] ;
+ $act = $_POST['action'] ;
+//$date = now();
 // $password = isset($_GET['var_password']) ? $_GET['var_password'] : null;
 //$resp['status'] = $username;
- /* $sql="select an,concat(pname,fname,'  ',lname) ptname,ThaiDateS(dchdate)  from ipt a
-LEFT JOIN patient p  on a.hn = p.hn
-where an = '590002258'  ";
-$resource = mysqli_query($link, $sql);
- $num = mysqli_num_rows($resource);
-$row = mysqli_fetch_assoc($resource);
+$sql = "INSERT INTO mr_track (an, user_recive,user_send, action,action_date)
+VALUES ('$an', '$u', '$act','$u_send',now())";
 
-if($num > 0 ){
-
-
-
-
-$resp['data'] = $row ;
-$resp['status'] = 'success' ;
-
+if ($link->query($sql) === TRUE) {
+   $resp['data'] = 'success' ;
+} else {
+   $resp['data'] = 'error' ;
 }
 
 
@@ -32,5 +27,5 @@ $resp['status'] = 'success' ;
 $result = json_encode($resp);
 
 echo  $result
-*/
+
 ?>

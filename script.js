@@ -15,13 +15,13 @@ scotchApp.config(function ($routeProvider) {
 
         // route for the about page
         .when('/about', {
-            templateUrl: 'pages/about.html',
+            templateUrl: 'pages/about.html?v=001',
             controller: 'aboutController'
         })
 
         // route for the contact page
         .when('/users', {
-            templateUrl: 'pages/listUser.html',
+            templateUrl: 'pages/listUser.html?v=001',
             controller: 'userController'
         })
         .when('/login', {
@@ -31,6 +31,10 @@ scotchApp.config(function ($routeProvider) {
         .when('/recive', {
             templateUrl: 'pages/recive.html?v=001',
             controller: 'reciveController'
+        })
+        .when('/send', {
+            templateUrl: 'pages/send.html?v=001',
+            controller: 'sendController'
         });
 
 
