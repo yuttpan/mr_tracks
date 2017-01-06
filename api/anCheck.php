@@ -13,7 +13,7 @@ if (!$link) {
   $sql="select an,concat(pname,fname,'  ',lname) ptname,ThaiDateS(dchdate)  from ipt a
 LEFT JOIN patient p  on a.hn = p.hn
 where an = '$_POST'  ";
-$resource = mysqli_query($link, $sql);
+$resource = mysqli_query($linkhos, $sql);
  $num = mysqli_num_rows($resource);
 $row = mysqli_fetch_assoc($resource);
 

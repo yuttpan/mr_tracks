@@ -14,8 +14,8 @@ $dbserver = "30.23.1.249" ;
          $link = mysqli_connect('127.0.0.1', 'sa', 'sa', 'mra_track');
 mysqli_set_charset($link, 'utf8');
 
-        // $linkhos = mysqli_connect('30.23.1.1', 'sa', 'sa', 'hos');
-//mysqli_set_charset($linkhos, 'utf8');
+        $linkhos = mysqli_connect('30.23.1.1', 'sa', 'sa', 'hos');
+mysqli_set_charset($linkhos, 'utf8');
 
 
 

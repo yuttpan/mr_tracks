@@ -10,11 +10,12 @@ if (!$link) {
  $u = $_POST['user'] ;
  $an = $_POST['an'] ;
  $act = $_POST['action'] ;
+ $u_send = $_POST['userSend'];
 //$date = now();
 // $password = isset($_GET['var_password']) ? $_GET['var_password'] : null;
 //$resp['status'] = $username;
-$sql = "INSERT INTO mr_track (an, user_recive,user_send, action,action_date)
-VALUES ('$an', '$u', '$act','$u_send',now())";
+$sql = "INSERT INTO recive (an, user_send,user_recive, action,action_date)
+VALUES ('$an', '$u_send', '$u','$act',now())";
 
 if ($link->query($sql) === TRUE) {
    $resp['data'] = 'success' ;
