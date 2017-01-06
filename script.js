@@ -35,6 +35,10 @@ scotchApp.config(function ($routeProvider) {
         .when('/send', {
             templateUrl: 'pages/send.html?v=001',
             controller: 'sendController'
+        })
+        .when('/addUser', {
+            templateUrl: 'pages/addUser.html?v=001',
+            controller: 'userController'
         });
 
 

@@ -62,4 +62,15 @@ scotchApp.service('DataService', function ($http) {
 
         return promise;
     }
+
+    this.Adduser = function (data) {
+        var fdata = data;
+        var promise = $http({
+            method: 'POST',
+            url: './api/adduser.php',
+            data: fdata
+        })
+
+        return promise;
+    }
 });

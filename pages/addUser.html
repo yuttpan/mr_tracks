@@ -1,0 +1,27 @@
+<ol class="breadcrumb">
+    <li><a href="#/">Home</a></li>
+    <li><a href="#/users">รายชื่อเจ้าหน้าที่</a></li>
+    <li class="active">เพิ่มรายชื่อผู้ปฏิบัติงาน</li>
+</ol>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+    </div>
+    <div class="panel-body">
+
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">ชื่อ - นามสกุล</label>
+                <input type="text" class="form-control" placeholder="ชื่อ - นามสกุล" ng-model="form.users">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">ตำแหน่ง</label>
+                <input type="text" class="form-control" placeholder="ตำแหน่ง" ng-model="form.position">
+            </div>
+
+
+            <button class="btn btn-default" ng-click="addUser(form)">Submit</button>
+        </form>
+    </div>
+</div>

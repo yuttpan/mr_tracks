@@ -8,13 +8,13 @@
     <div class="panel-heading">
         <h3 class="panel-title">รายชื่อผู้ปฏิบัติงาน
 
-            <button type="button" class="btn btn-sm btn-success">เพิ่ม</button>
+            <a class="btn btn-success" href="#/addUser">เพิ่ม </a>
 
         </h3>
     </div>
     <div class="panel-body">
 
-        <ul class="list-group" ng-repeat="u in myWelcome">
+        <ul class="list-group" ng-repeat="u in listuser">
             <li class="list-group-item">{{u.u_name}}</li>
 
         </ul>
