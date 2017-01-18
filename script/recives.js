@@ -13,18 +13,21 @@ scotchApp.controller('reciveController', function ($scope, $http, $location, $lo
     }
 
 
-    // $scope.mralistS = [];
 
 
     $scope.mralistSend = function () {
 
         //console.log($scope.dep);
-        $http.get("./api/listmra_recive.php")
-            .then(function (data) {
-                $scope.mralistS = data.data;
-                console.log(data.data);
-            });
+        DataService.mraReciveList().success(function ($data) {
+            var getdata1 = angular.extend($data);
+            //console.log(getdata.length)
 
+            $scope.mralistSend = getdata1;
+
+            console.log($scope.mralistSend)
+            //$scope.dep = '';
+        });
+        console.log($scope.dep);
     }
 
 
@@ -42,19 +45,18 @@ scotchApp.controller('reciveController', function ($scope, $http, $location, $lo
 
             $scope.response = getdata;
 
-            // console.log($scope.response.data)
+            console.log($scope.response.data)
             if (getdata.data == 'success') {
                 alert('บันทึกข้อมูลสำเร็จ')
-                // console.log(getdata.length)
-                //$state.reload();
-                $scope.mralistSend();
+
+
             } else {
                 alert('ไม่สามารถบันทึกข้อมูลได้')
             }
 
         });
     }
-
+    $scope.mralistSend();
 
     $scope.form = {};
     $scope.form.user = $localStorage.user;

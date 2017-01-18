@@ -1,21 +1,22 @@
 <?php
 header('Access-control-Allow-origin:*');
 include_once 'DB.php';
-date_default_timezone_set('America/Los_Angeles');
+
 // Check connection
 $_POST = json_decode(file_get_contents('php://input'),TRUE);
 if (!$link) {
     die("Connection failed: " . mysqli_connect_error());
 }
- $u = $_POST['user'] ;
- $an = $_POST['an'] ;
- $act = $_POST['action'] ;
- $u_send = $_POST['userSend'];
+
+$user_r = $_POST['user_r'] ;
+$id = $_POST['id'];
+$status_recive = 'Y' ;
+
 //$date = now();
 // $password = isset($_GET['var_password']) ? $_GET['var_password'] : null;
 //$resp['status'] = $username;
-$sql = "INSERT INTO recive (an, user_send,user_recive, action,action_date)
-VALUES ('$an', '$u_send', '$u','$act',now())";
+  $sql = "UPDATE  mr_track set  user_r = '$user_r',recivedate = now(),status_recive = '$status_recive'
+  where id = '$id' ";
 
 if ($link->query($sql) === TRUE) {
    $resp['data'] = 'success' ;

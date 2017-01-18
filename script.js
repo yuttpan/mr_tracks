@@ -12,17 +12,21 @@ scotchApp.config(function ($routeProvider) {
             templateUrl: 'pages/main.html?v=001',
             controller: 'mainController'
         })
+        .when('/sendmra', {
+            templateUrl: 'pages/sendMra.html?v=001',
+            controller: 'reciveWardController'
+        })
 
         // route for the about page
-        .when('/about', {
-            templateUrl: 'pages/about.html?v=001',
-            controller: 'aboutController'
+        .when('/mraRegist', {
+            templateUrl: 'pages/mraRegist.html?v=001',
+            controller: 'mraRegistController'
         })
 
         // route for the contact page
-        .when('/users', {
-            templateUrl: 'pages/listUser.html?v=001',
-            controller: 'userController'
+        .when('/mraDoctor', {
+            templateUrl: 'pages/mraDoctor.html?v=001',
+            controller: 'mraDoctorController'
         })
         .when('/login', {
             templateUrl: 'pages/login.html?v=001',
@@ -36,9 +40,19 @@ scotchApp.config(function ($routeProvider) {
             templateUrl: 'pages/send.html?v=001',
             controller: 'sendController'
         })
-        .when('/addUser', {
-            templateUrl: 'pages/addUser.html?v=001',
-            controller: 'userController'
+        .when('/addDoctor', {
+            templateUrl: 'pages/addDoctor.html?v=001',
+            controller: 'addDoctorController'
+        })
+
+         .when('/mainReport', {
+            templateUrl: 'pages/mainReport.html?v=001',
+            controller: 'reportController'
+        })
+
+        .when('/regMRa', {
+            templateUrl: 'pages/regReport.html?v=001',
+            controller: 'reportController'
         });
 
 

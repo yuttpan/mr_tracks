@@ -4,17 +4,16 @@ header('Access-Control-Allow-Origin: * ' );
 include_once 'DB.php';
 
 
-$_POST = json_decode(file_get_contents('php://input'),TRUE);
+
 
 // $villagecode = isset($_GET['village_code']) ? $_GET['village_code'] : null;
 // $password = isset($_GET['var_password']) ? $_GET['var_password'] : null;
 //$resp['status'] = $username;
 
- $sql="select p.hn,an,concat(pname,fname,'  ',lname) as ptname,a.dchdate,thaidates(dchdate) tdchdate
- from ipt a
-LEFT outer JOIN patient p  on a.hn = p.hn
-where an = '$_POST'  ";
-$resource = mysqli_query($linkhos, $sql);
+ $sql="select an,hn,ptname,thaidates(dchdate) tdchdate,thaidates(send_date) tsend_date,dchdate,user_s,send_date,
+ user_r ,recivedate,deprecive,status_recive ,depart_name from mr_track m left outer join
+ depart on m.deprecive = depart_id ";
+$resource = mysqli_query($link, $sql);
 $num = mysqli_num_rows($resource);
 //$row = mysqli_fetch_assoc($resource);
 if($num > 0) {
@@ -27,8 +26,8 @@ if($num > 0) {
 
 
 
-$results = json_encode($resp);
+$result = json_encode($resp);
 
-echo  $results ;
+echo  $result ;
 
 ?>

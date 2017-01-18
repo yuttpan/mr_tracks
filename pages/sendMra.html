@@ -1,0 +1,135 @@
+<ol class="breadcrumb">
+    <li><a href="#/">Home</a></li>
+    <li class="active">ส่งเวชระเบียนผู้ป่วย</li>
+</ol>
+
+<div class="container" ng-controller="reciveWardController">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ค้นหา AN</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">AN</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="AN" ng-model="an" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button ng-click="chkAn(an)" class="btn btn-default">ค้นหา</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ส่งเวชระเบียน</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">AN</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="AN" ng-model="form.an" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">HN</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="HN" ng-model="form.hn" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">ชื่อ</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="ชื่อ" ng-model="form.ptname" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">วันที่จำหน่าย</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="วันจำหน่าย" ng-model="form.tdchdate" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputuser" class="col-sm-3 control-label">หน่วยงานที่ส่ง</label>
+                            <div class="col-sm-9">
+                                <select name="" id="inputuser" class="form-control" ng-model="form.depsend">
+
+                                <option value="{{d.depart_id}}" ng-repeat="d in listdepart ">{{d.depart_name}}</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputuser" class="col-sm-3 control-label">ส่งให้หน่วยงาน</label>
+                            <div class="col-sm-9">
+                                <select name="" id="inputuser" class="form-control" ng-model="form.depRecive">
+
+                                <option value="{{d.depart_id}}" ng-repeat="d in listdepart ">{{d.depart_name}}</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-default" data-ng-click="anRegist(form)">ตกลง</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                <input type="text" class="form-control" placeholder="ค้นหา" ng-model="searchMra">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ที่</th>
+                            <th>AN</th>
+                            <th>HN</th>
+                            <th>ชื่อผู้ป่วย</th>
+                            <th>วันจำหน่าย</th>
+                            <th>ผู้ส่ง</th>
+                            <th>วันที่ส่ง</th>
+                            <th>ผู้รับ</th>
+                            <th>วันที่รับ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="a in mralist  | filter:searchMra">
+                            <td>{{$index + 1}}</td>
+                            <td>{{a.an}}</td>
+                            <td>{{a.hn}}</td>
+                            <td>{{a.ptname}}</td>
+                            <td>{{a.tdchdate}}</td>
+                            <td>{{a.user_s}}</td>
+                            <td>{{a.tsend_date}}</td>
+                            <td>{{a.user_r}}</td>
+                            <td>{{a.recivedate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

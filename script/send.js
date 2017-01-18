@@ -1,4 +1,4 @@
-scotchApp.controller('sendController', function($scope, $http, $location, $localStorage, DataService) {
+scotchApp.controller('sendController', function ($scope, $http, $location, $localStorage, DataService) {
     // create a message to display in our view
     console.log($localStorage.status)
     if ($localStorage.status === null) {
@@ -14,8 +14,8 @@ scotchApp.controller('sendController', function($scope, $http, $location, $local
     $scope.form = {};
     $scope.form.user = $localStorage.user;
     console.log($scope.form)
-    $scope.chkAn = function() {
-        DataService.AnService($scope.form.an).success(function($data) {
+    $scope.chkAn = function () {
+        DataService.AnService($scope.form.an).success(function ($data) {
             var getdata = angular.extend($data);
             console.log(getdata)
 
@@ -29,8 +29,8 @@ scotchApp.controller('sendController', function($scope, $http, $location, $local
 
     }
 
-    $scope.listuser = function() {
-        DataService.userService().success(function($data) {
+    $scope.listuser = function () {
+        DataService.userService().success(function ($data) {
             var getdata = angular.extend($data);
             console.log(getdata)
 
@@ -46,10 +46,10 @@ scotchApp.controller('sendController', function($scope, $http, $location, $local
 
     $scope.listuser();
 
-    $scope.sendAn = function() {
+    $scope.sendAn = function () {
         $scope.form.action = 'S'
 
-        DataService.AnSend($scope.form).success(function($data) {
+        DataService.AnSend($scope.form).success(function ($data) {
             var getdata = angular.extend($data);
             console.log(getdata.data)
 

@@ -16,7 +16,7 @@ $username = $_POST['txt_usr'] ;
 $password = $_POST['txt_pwd'];
 if($username != null && $password != null){
   $sql="select loginname,name from opduser where loginname ='$username' and passweb= md5('$password')   ";
-$resource = mysqli_query($link, $sql);
+$resource = mysqli_query($linkhos, $sql);
  $num = mysqli_num_rows($resource);
 $row = mysqli_fetch_assoc($resource);
 

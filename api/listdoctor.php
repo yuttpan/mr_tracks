@@ -10,7 +10,7 @@ include_once 'DB.php';
 // $password = isset($_GET['var_password']) ? $_GET['var_password'] : null;
 //$resp['status'] = $username;
 
- $sql="select * from users ";
+ $sql="select * from doctor ";
 $resource = mysqli_query($link, $sql);
 $num = mysqli_num_rows($resource);
 //$row = mysqli_fetch_assoc($resource);
@@ -24,7 +24,7 @@ if($num > 0) {
 
 
 
-$result = json_encode($resp); 
+$result = json_encode($resp);
 
 echo  $result ;
 

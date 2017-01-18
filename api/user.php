@@ -1,33 +1,31 @@
 <?php
-header('Access-control-Allow-origin:*');
-include_once 'DB.php';
-// Check connection
+header('Access-Control-Allow-Origin: * ' );
 
-if (!$link) {
-    die("Connection failed: " . mysqli_connect_error());
-}
- //$an = isset($_GET['var_an']) ? $_GET['var_an'] : null;
+include_once 'DB.php';
+
+
+
+
+// $villagecode = isset($_GET['village_code']) ? $_GET['village_code'] : null;
 // $password = isset($_GET['var_password']) ? $_GET['var_password'] : null;
 //$resp['status'] = $username;
-  $sql="select an,concat(pname,fname,'  ',lname) ptname,ThaiDateS(dchdate)  from an_stat a
-LEFT JOIN patient p  on a.hn = p.hn  ";
-$resource = mysqli_query($link, $sql);
- $num = mysqli_num_rows($resource);
-$row = mysqli_fetch_assoc($resource);
 
-if($num > 0 ){
+ $sql="select loginname,name from opduser ";
+$resource = mysqli_query($linkhos, $sql);
+$num = mysqli_num_rows($resource);
+//$row = mysqli_fetch_assoc($resource);
+if($num > 0) {
+ while ($result = mysqli_fetch_assoc($resource)) {
+//$rows[]=$result;
+   $resp[] = $result;
 
-
-
-
-$resp['data'] = $row ;
-
-
+ }
 }
 
 
 
-$result = json_encode($resp); 
+$result = json_encode($resp);
 
-echo  $result
+echo  $result ;
+
 ?>

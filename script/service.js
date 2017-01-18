@@ -1,6 +1,6 @@
-scotchApp.service('DataService', function($http) {
+scotchApp.service('DataService', function ($http) {
 
-    this.postData = function(data, callback) {
+    this.postData = function (data, callback) {
 
         $http({
             method: 'POST',
@@ -9,14 +9,14 @@ scotchApp.service('DataService', function($http) {
             headers: {
                 'Content-type': 'application/json'
             }
-        }).success(function(resp) {
+        }).success(function (resp) {
             callback(resp);
-        }).error(function() {
+        }).error(function () {
             callback(undefined);
         });
     };
 
-    this.loginService = function(data) {
+    this.loginService = function (data) {
 
         var formdata = data;
         console.log(formdata)
@@ -31,9 +31,9 @@ scotchApp.service('DataService', function($http) {
 
     };
     //ตรวจสอบ AN
-    this.AnService = function(data) {
+    this.AnService = function (data) {
         var fdata = data;
-
+        console.log(fdata);
         var promise = $http({
             method: 'POST',
             url: './api/anCheck.php',
@@ -43,9 +43,21 @@ scotchApp.service('DataService', function($http) {
         return promise;
     }
 
+    this.AnRegist = function (data) {
+        var fdata = data;
+        console.log(fdata);
+        var promise = $http({
+            method: 'POST',
+            url: './api/anRegist.php',
+            data: fdata
+        })
+
+        return promise;
+    }
+
 
     //รับเวชระเบียน
-    this.AnService1 = function(data) {
+    this.AnService1 = function (data) {
         var fdata = data;
         console.log(fdata);
         var promise = $http({
@@ -58,7 +70,7 @@ scotchApp.service('DataService', function($http) {
     }
 
     //ส่งเวชระเบียน
-    this.AnSend = function(data) {
+    this.AnSend = function (data) {
         var fdata = data;
         console.log(fdata);
         var promise = $http({
@@ -71,11 +83,32 @@ scotchApp.service('DataService', function($http) {
     }
 
     //รายชื่อเจ้าหน้าที่
-    this.userService = function() {
+    this.doctorService = function () {
         //var fdata = data;
         var promise = $http({
             method: 'GET',
-            url: './api/listuser.php',
+            url: './api/listdoctor.php',
+            // data: fdata
+        })
+
+        return promise;
+    }
+    this.departService = function () {
+        //var fdata = data;
+        var promise = $http({
+            method: 'GET',
+            url: './api/listdepart.php',
+            // data: fdata
+        })
+
+        return promise;
+    }
+
+    this.userHosService = function () {
+        //var fdata = data;
+        var promise = $http({
+            method: 'GET',
+            url: './api/user.php',
             // data: fdata
         })
 
@@ -83,11 +116,84 @@ scotchApp.service('DataService', function($http) {
     }
 
     //เพิ่มเจ้าหน้าที่
-    this.Adduser = function(data) {
+    this.Adddoctor = function (data) {
         var fdata = data;
+        console.log(fdata)
         var promise = $http({
             method: 'POST',
-            url: './api/adduser.php',
+            url: './api/adddoc.php',
+            
+            data: fdata
+        })
+
+        return promise;
+    }
+
+    this.mraService = function () {
+        //var fdata = data;
+        var promise = $http({
+            method: 'GET',
+            url: './api/listmra.php',
+            // data: fdata
+        })
+
+        return promise;
+    }
+
+    this.mraReciveList = function () {
+        //var fdata = data;
+        //  console.log(fdata);
+        var promise = $http({
+            method: 'GET',
+            url: './api/listmra_recive.php',
+            //data: fdata
+        })
+
+        return promise;
+    }
+
+    this.mraRecive = function (data) {
+        var fdata = data;
+        console.log(fdata);
+        var promise = $http({
+            method: 'POST',
+            url: './api/mra_recive.php',
+            data: fdata
+        })
+
+        return promise;
+    }
+
+     this.mraDoctorService = function () {
+        //var fdata = data;
+        var promise = $http({
+            method: 'GET',
+            url: './api/listmradoctor.php',
+            // data: fdata
+        })
+
+        return promise;
+    }
+
+    this.sendDoctor = function (data) {
+        var fdata = data;
+        console.log(fdata);
+        var promise = $http({
+            method: 'POST',
+            url: './api/senddoctor.php',
+            data: fdata
+        })
+
+        return promise;
+    }
+
+
+    this.doctorRecive = function (data) {
+        var fdata = data;
+        console.log(fdata);
+        var promise = $http({
+            method: 'POST',
+            url: './api/doctorrecive.php',
             data: fdata
         })
 

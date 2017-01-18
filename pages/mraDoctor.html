@@ -1,0 +1,143 @@
+<ol class="breadcrumb">
+    <li>
+        <a href="#/">หน้าหลัก</a>
+    </li>
+    <li class="active">รับส่งเวชระเบียนแพทย์</li>
+</ol>
+
+
+
+<div class="container" ng-controller="mraDoctorController">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ค้นหา AN</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">AN</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="AN" ng-model="an" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button ng-click="chkAn(an)" class="btn btn-default">ค้นหา</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ส่งเวชระเบียน</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">AN</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="AN" ng-model="form.an" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">HN</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="HN" ng-model="form.hn" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">ชื่อ</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="ชื่อ" ng-model="form.ptname" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">วันที่จำหน่าย</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="วันจำหน่าย" ng-model="form.tdchdate" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputuser" class="col-sm-3 control-label">ส่งให้แพทย์</label>
+                            <div class="col-sm-6">
+                                <select name="" id="inputuser" class="form-control" ng-model="form.doctorRecive">
+                                 <option ng-if="listdoctor.length== 0 ">ไม่มีข้อมูล</option>
+                                <option value="{{d.doctor_name}}" ng-repeat="d in listdoctor ">{{d.doctor_name}}</option>
+
+                            </select>
+                            </div>
+                            <div class="col-sm-3">
+                                
+                               <a href="#/addDoctor" class="btn btn-info" role="button" >รายชื่อแพทย์</a>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-default" data-ng-click="sendDoctor(form)">ตกลง</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                <input type="text" class="form-control" placeholder="ค้นหา" ng-model="searchMra">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ที่</th>
+                            <th>AN</th>
+                            <th>HN</th>
+                            <th>ชื่อผู้ป่วย</th>
+                            <th>วันจำหน่าย</th>
+                            <th>ผู้ส่ง</th>
+                            <th>วันที่ส่ง</th>
+                            <th>แพทย์</th>
+                            <th>วันที่รับคืน</th>
+                            <th>ผู้รับคืน</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-if="mralistdoctor.length == 0"><td colspan="10">ไม่มีข้อมูล</td></tr>
+                        <tr ng-if="mralistdoctor.length > 0" ng-repeat="a in mralistdoctor  | filter:searchMra">
+                            <td>{{$index + 1}}</td>
+                            <td>{{a.an}}</td>
+                            <td>{{a.hn}}</td>
+                            <td>{{a.ptname}}</td>
+                            <td>{{a.tdchdate}}</td>
+                            <td>{{a.user_s}}</td>
+                            <td>{{a.tsend_date}}</td>
+                            <td>{{a.doctor}}</td>
+                            <td>{{a.recivedate}}</td>
+                            <td>{{a.user_r}}</td>
+                            <td> <button type="button " class="btn btn-primary " ng-click="reciveDoctor(a) ">รับคืน</button></td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

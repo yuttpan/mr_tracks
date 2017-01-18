@@ -1,0 +1,45 @@
+
+
+<div  class="containner" ng-controller="addDoctorController">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ค้นหา AN</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">แพทย์</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="" ng-model="an" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button ng-click="add_doctor(an)" class="btn btn-default">บันทึก</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+      <div class="row" > 
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+          
+    
+      
+        <ul class="list-group">
+            <li class="list-group-item"  ng-if="listdoctor.length== 0 ">ไม่มีข้อมูล </li>
+             <li class="list-group-item"  ng-repeat="a in listdoctor">{{a.doctor_name}} </li>
+        </ul>
+        
+      </div>
+</div>
+</div>
+
